@@ -1,0 +1,421 @@
+$primary-color: #582a72;
+$sm: 575.98px;
+$md: 767.98px;
+$lg: 991.98px;
+$xl: 1199.98px;
+
+html,
+body {
+    font-size: 14px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Tinos", serif;
+    font-weight: 700;
+}
+
+a {
+    color: $primary-color;
+
+    &:hover {
+        color: lighten($primary-color, 5%);
+    }
+}
+
+.header {
+    height: 120px;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.logo {
+    top: 0;
+    left: 0;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #dcdcdc;
+    border-top: 0;
+    z-index: 1;
+    border-radius: 0 0 4px 4px;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: #fff;
+
+    &:hover {
+        background-color: lighten($primary-color, 5%);
+        border-color: $primary-color;
+    }
+}
+
+.btn-outline-primary {
+    border-color: #fff;
+    color: #fff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &:hover {
+        border-color: $primary-color;
+        background-color: $primary-color;
+    }
+}
+
+.menu-toggler {
+    display: none;
+
+    @media (max-width: $sm) {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-left: auto;
+        border: 0;
+        background-color: transparent;
+        align-self: flex-start;
+        margin-top: 50px;
+        color: $primary-color;
+
+        .fas {
+            margin-right: 10px;
+        }
+    }
+}
+
+.close-section {
+    display: none;
+
+    @media (max-width: $sm) {
+        display: unset;
+        width: 100%;
+        border-bottom: 1px solid #dcdcdc;
+        padding: 7px 5px;
+    }
+
+    .close-btn {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        color: $primary-color;
+    }
+}
+
+.header-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $sm) {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #f7f7f7;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        right: 0;
+        top: 0;
+        z-index: 1003;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+
+        &.show {
+            transform: translateX(0);
+        }
+
+        .main-menu {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+            width: 100%;
+
+            a {
+                padding: 10px;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #dcdcdc;
+            }
+        }
+    }
+}
+
+.main-menu {
+    margin-left: 30px;
+    font-size: 0;
+
+    a {
+        color: #555;
+        font-size: 14px;
+        padding: 18px 15px;
+        line-height: 20px;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &.active {
+            border-bottom: 2px solid $primary-color;
+        }
+
+        &:hover {
+            transition: 1s all ease;
+            text-decoration: none;
+        }
+    }
+}
+
+.info-group {
+    @media (max-width: $xl) {
+        display: none !important;
+    }
+}
+
+.info-block {
+    span {
+        color: #333;
+    }
+
+    .fas {
+        color: $primary-color;
+    }
+
+    &:hover {
+        span {
+            color: #555;
+        }
+
+        .fas {
+            color: lighten($primary-color, 5%);
+        }
+    }
+}
+
+.cover {
+    height: 460px;
+    background: #f7f7f7 url("./images/moscow-cover.jpg") no-repeat;
+
+    @media (min-width: $md) {
+        background-position: 50% 0%;
+    }
+
+    @media (min-width: $lg) {
+        background-position: 70% 0%;
+    }
+}
+
+.common-section {
+    background-color: #fff;
+    padding: 80px 0;
+
+    &.bg {
+        background-color: #f7f7f7;
+    }
+}
+
+.image-bg {
+    background-color: #f7f7f7;
+    background-image: url(./images/moscow-full.jpg);
+    background-attachment: fixed;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.img-box {
+    overflow: hidden;
+    position: relative;
+    height: 230px;
+
+    .service-link {
+        display: block;
+        position: relative;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+
+        img {
+            transition: transform 0.5s ease;
+            position: relative;
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            z-index: 1;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: #000;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        img {
+            transform: scale(1.2);
+        }
+
+        &::after {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .service-details .btn-outline-primary {
+            background-color: lighten($primary-color, 5%);
+            border-color: $primary-color;
+        }
+    }
+
+    .service-details {
+        position: absolute;
+        padding: 20px;
+        bottom: 0;
+        left: 0;
+        z-index: 101;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-caption {
+        color: #fff;
+        font-weight: 400;
+        margin-bottom: 1.25rem;
+    }
+}
+
+.service-container .row:not(:last-child) {
+    margin-bottom: 3rem;
+
+    @media (max-width: $sm) {
+        margin-bottom: 0;
+    }
+}
+
+.service-block {
+    padding: 25px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+
+    @media (max-width: $sm) {
+        margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+        height: 65px;
+        text-overflow: ellipsis;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-description {
+        height: 80px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.partners img {
+    height: 30px;
+    filter: grayscale(100%);
+    transition: 0.7s ease;
+
+    @media (max-width: $sm) {
+        height: 22px;
+    }
+
+    &:hover {
+        filter: grayscale(0);
+    }
+}
+
+.image-holder img {
+    max-width: 100%;
+}
+
+.heading {
+    padding-bottom: 5px;
+    border-bottom: 5px solid $primary-color;
+}
+
+footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #dcdcdc;
+
+    a {
+        font-weight: 500;
+    }
+
+    .footer-logo {
+        filter: grayscale(100%);
+        transition: 0.7s ease;
+
+        &:hover {
+            filter: grayscale(50%);
+        }
+    }
+
+    hr {
+        margin: 0;
+    }
+}
+
+@media (max-width: $sm) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-menu {
+        text-align: center;
+
+        ul {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+
+            li:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .logo-group {
+        flex-direction: column;
+        text-align: center;
+
+        a {
+            margin: 0 !important;
+        }
+    }
+}
